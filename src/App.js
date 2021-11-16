@@ -1,13 +1,16 @@
 import './App.css';
 import React, {useState, useEffect} from "react";
 import {makeStyles} from "@mui/styles";
-import {Button} from '@mui/material';
+import {Button,Switch, FormControlLabel, FormControl} from '@mui/material';
 import Header from "./components/Header";
 import * as creatureList from './name.json';
 
 const useStyles = makeStyles(() => ({
-    results: {
+    root: {
         width: '400px',
+        margin: '0 auto',
+    },
+    results: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'center',
@@ -17,15 +20,23 @@ const useStyles = makeStyles(() => ({
         fontSize: '3em',
         fontWeight: 'bold'
     },
-    item: {
-        marginRight: 10,
-        width: 100,
-        borderBottom: '1px solid black',
-        padding: '10px'
+    form: {
+        border: '1px solid black',
+        padding: '10px',
+        paddingTop: '20px' ,
+        display: 'flex',
+        flexDirection: 'column',
+        position: 'relative',
     },
-    buttons: {
-        margin: '10px 0',
-
+    formTitle: {
+        position: 'absolute',
+        textAlign: 'center',
+        top: '-13px',
+        width: '380px',
+        backgroundColor: 'white',
+        border: '1px solid black',
+        borderRadius: 10,
+        fontWeight: 'bold'
     }
 }))
 
@@ -34,7 +45,7 @@ function App() {
 
   const [movieTitle1, setMovieTitle1] = useState("");
   const [movieTitle2, setMovieTitle2] = useState("");
-  const [movieTitle3, setMovieTitle3] = useState("");
+  const [prefix, setPrefix] = useState(null);
 
   const getRandomItem = () => {
       return creatureList.monster[Math.floor(Math.random() * creatureList.monster.length)];
@@ -70,26 +81,27 @@ function App() {
   return (
     <div className="App">
       <Header/>
-        <div className={classes.results}>
-            {`${movieTitle1} ${movieTitle2}s ${movieTitle3}`}
+        <div className={classes.root}>
+            <div className={classes.results}>
+                {prefix && <span>{prefix}&nbsp;</span>} <span>{movieTitle1}</span>&nbsp;<span>{movieTitle2}s</span>
+            </div>
+            <div className={classes.form}>
+                <span className={classes.formTitle}>Randomizer</span>
+                <Button
+                    variant={'contained'}
+                    onClick={handleTitle1Change}
+                >Monster One</Button>
+                <Button
+                    variant={'contained'}
+                    onClick={handleTitle2Change}
+                >Monster Two</Button>
+                <Button
+                    variant={'contained'}
+                    onClick={handleInitialTitle}
+                >Full Shuffle
+                </Button>
+            </div>
         </div>
-      <div className={classes.buttons}>
-          <Button
-              variant={'contained'}
-              onClick={handleTitle1Change}
-              sx={{marginRight: '5px'}}
-          >Monster One</Button>
-          <Button
-              variant={'contained'}
-              onClick={handleTitle2Change}
-          >Monster Two</Button>
-      </div>
-        <Button
-            variant={'contained'}
-            onClick={handleInitialTitle}
-        >
-            Full Shuffle
-        </Button>
     </div>
   );
 }
