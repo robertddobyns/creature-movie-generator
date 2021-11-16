@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/creature-movie-generator/static/css/main.8c8b27cf.chunk.css",
-    "main.js": "/creature-movie-generator/static/js/main.9ed3ecd9.chunk.js",
-    "main.js.map": "/creature-movie-generator/static/js/main.9ed3ecd9.chunk.js.map",
+    "main.js": "/creature-movie-generator/static/js/main.8a8225e0.chunk.js",
+    "main.js.map": "/creature-movie-generator/static/js/main.8a8225e0.chunk.js.map",
     "runtime-main.js": "/creature-movie-generator/static/js/runtime-main.e5391b7e.js",
     "runtime-main.js.map": "/creature-movie-generator/static/js/runtime-main.e5391b7e.js.map",
     "static/js/2.fe6921bd.chunk.js": "/creature-movie-generator/static/js/2.fe6921bd.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.e5391b7e.js",
     "static/js/2.fe6921bd.chunk.js",
     "static/css/main.8c8b27cf.chunk.css",
-    "static/js/main.9ed3ecd9.chunk.js"
+    "static/js/main.8a8225e0.chunk.js"
   ]
 }
