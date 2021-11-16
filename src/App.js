@@ -1,7 +1,7 @@
 import './App.css';
 import React, {useState, useEffect} from "react";
 import {makeStyles} from "@mui/styles";
-import {Button,Switch, FormControlLabel, FormControl} from '@mui/material';
+import {Button, Switch, FormControlLabel, FormControl, FormGroup} from '@mui/material';
 import Header from "./components/Header";
 import * as creatureList from './name.json';
 
@@ -43,6 +43,12 @@ const useStyles = makeStyles(() => ({
         border: '1px solid black',
         borderRadius: 10,
         fontWeight: 'bold'
+    },
+    optionals: {
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        textAlign: 'left'
     }
 }))
 
@@ -52,6 +58,7 @@ function App() {
   const [movieTitle1, setMovieTitle1] = useState("");
   const [movieTitle2, setMovieTitle2] = useState("");
   const [prefix, setPrefix] = useState(null);
+  const [vs, setVs] = useState(false);
 
   const getRandomItem = () => {
       return creatureList.monster[Math.floor(Math.random() * creatureList.monster.length)];
@@ -80,6 +87,10 @@ function App() {
       setMovieTitle2(newMonsterName);
   }
 
+  const handleVsToggle = () => {
+      setVs(!vs);
+  }
+
   useEffect(() =>{
       handleInitialTitle();
   },[])
@@ -89,7 +100,7 @@ function App() {
       <Header/>
         <div className={classes.root}>
             <div className={classes.results}>
-                {prefix && <span>{prefix}&nbsp;</span>} <span>{movieTitle1}</span>&nbsp;<span>{movieTitle2}s</span>
+                {prefix && <span>{prefix}&nbsp;</span>} <span>{movieTitle1}</span> {vs ? <span>&nbsp;vs&nbsp;</span> : <span>&nbsp;</span> } <span>{movieTitle2}s</span>
             </div>
             <div className={classes.form}>
                 <span className={classes.formTitle}>Randomizer</span>
@@ -108,7 +119,27 @@ function App() {
                         onClick={handleTitle2Change}
                     >Monster Two</Button>
                 </div>
-
+                <div className={classes.optionals}>
+                    <div>
+                        <FormControlLabel control={<Switch/>} label={'Prefix'}/>
+                        <Button
+                            variant={"contained"}
+                        >
+                            Shuffle Prefix
+                        </Button>
+                    </div>
+                    <div>
+                        <FormControlLabel control={<Switch/>} label={'Display VS'} onChange={handleVsToggle}/>
+                    </div>
+                    <div>
+                        <FormControlLabel control={<Switch/>} label={'Suffix'}/>
+                        <Button
+                            variant={"contained"}
+                        >
+                            Shuffle Suffix
+                        </Button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
