@@ -13,6 +13,9 @@ const useStyles = makeStyles(() => ({
         justifyContent: 'center',
         margin: '10px auto',
         padding: '10px',
+        fontFamily: 'Amatic SC',
+        fontSize: '3em',
+        fontWeight: 'bold'
     },
     item: {
         marginRight: 10,
