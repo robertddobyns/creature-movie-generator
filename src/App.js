@@ -20,6 +20,12 @@ const useStyles = makeStyles(() => ({
         fontSize: '3em',
         fontWeight: 'bold'
     },
+    buttonContainerMonster: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        margin: '10px 0'
+    },
     form: {
         border: '1px solid black',
         padding: '10px',
@@ -31,7 +37,7 @@ const useStyles = makeStyles(() => ({
     formTitle: {
         position: 'absolute',
         textAlign: 'center',
-        top: '-13px',
+        top: '-12px',
         width: '380px',
         backgroundColor: 'white',
         border: '1px solid black',
@@ -89,17 +95,20 @@ function App() {
                 <span className={classes.formTitle}>Randomizer</span>
                 <Button
                     variant={'contained'}
-                    onClick={handleTitle1Change}
-                >Monster One</Button>
-                <Button
-                    variant={'contained'}
-                    onClick={handleTitle2Change}
-                >Monster Two</Button>
-                <Button
-                    variant={'contained'}
                     onClick={handleInitialTitle}
                 >Full Shuffle
                 </Button>
+                <div className={classes.buttonContainerMonster}>
+                    <Button
+                        variant={'contained'}
+                        onClick={handleTitle1Change}
+                    >Monster One</Button>
+                    <Button
+                        variant={'contained'}
+                        onClick={handleTitle2Change}
+                    >Monster Two</Button>
+                </div>
+
             </div>
         </div>
     </div>
