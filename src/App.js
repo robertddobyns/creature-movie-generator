@@ -92,6 +92,21 @@ function App() {
       setVsToggle(!vsToggle);
   }
 
+  const handlePrefixToggle = () => {
+    prefix ? setPrefix(null) : generatePrefix();
+  }
+  const handleSuffixToggle = () => {
+      suffix ? setSuffix(null) : generateSuffix();
+  }
+
+  const generatePrefix = () => {
+      setPrefix('whatever');
+  }
+
+  const generateSuffix = () => {
+    setSuffix('whatever');
+  }
+
   useEffect(() =>{
       handleInitialTitle();
   },[])
@@ -101,7 +116,7 @@ function App() {
       <Header/>
         <div className={classes.root}>
             <div className={classes.results}>
-                {prefix && <span>{prefix}&nbsp;</span>} <span>{movieTitle1}</span> {vsToggle ? <span>&nbsp;vs&nbsp;</span> : <span>&nbsp;</span> } <span>{movieTitle2}s</span>
+                {prefix && <span>{prefix}</span>}&nbsp;{movieTitle1}&nbsp;{vsToggle && <span>vs&nbsp;</span>}{movieTitle2}&nbsp;{suffix && <span>{suffix}</span>}
             </div>
             <div className={classes.form}>
                 <span className={classes.formTitle}>Randomizer</span>
@@ -122,14 +137,14 @@ function App() {
                 </div>
                 <div className={classes.optionals}>
                     <div>
-                        <FormControlLabel control={<Switch/>} label={'Prefix'}/>
+                        <FormControlLabel control={<Switch/>} label={'Prefix'} onChange={handlePrefixToggle}/>
                         {prefix && <Button variant={'contained'}>Shuffle Prefix</Button>}
                     </div>
                     <div>
                         <FormControlLabel control={<Switch/>} label={'Display VS'} onChange={handleVsToggle}/>
                     </div>
                     <div>
-                        <FormControlLabel control={<Switch/>} label={'Suffix'}/>
+                        <FormControlLabel control={<Switch/>} label={'Suffix'} onChange={handleSuffixToggle}/>
                         {suffix && <Button variant={'contained'}>Shuffle Suffix</Button>}
                     </div>
                 </div>
