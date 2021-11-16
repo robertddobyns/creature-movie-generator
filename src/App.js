@@ -58,7 +58,8 @@ function App() {
   const [movieTitle1, setMovieTitle1] = useState("");
   const [movieTitle2, setMovieTitle2] = useState("");
   const [prefix, setPrefix] = useState(null);
-  const [vs, setVs] = useState(false);
+  const [suffix, setSuffix] = useState(null);
+  const [vsToggle, setVsToggle] = useState(false);
 
   const getRandomItem = () => {
       return creatureList.monster[Math.floor(Math.random() * creatureList.monster.length)];
@@ -88,7 +89,7 @@ function App() {
   }
 
   const handleVsToggle = () => {
-      setVs(!vs);
+      setVsToggle(!vsToggle);
   }
 
   useEffect(() =>{
@@ -100,7 +101,7 @@ function App() {
       <Header/>
         <div className={classes.root}>
             <div className={classes.results}>
-                {prefix && <span>{prefix}&nbsp;</span>} <span>{movieTitle1}</span> {vs ? <span>&nbsp;vs&nbsp;</span> : <span>&nbsp;</span> } <span>{movieTitle2}s</span>
+                {prefix && <span>{prefix}&nbsp;</span>} <span>{movieTitle1}</span> {vsToggle ? <span>&nbsp;vs&nbsp;</span> : <span>&nbsp;</span> } <span>{movieTitle2}s</span>
             </div>
             <div className={classes.form}>
                 <span className={classes.formTitle}>Randomizer</span>
@@ -122,22 +123,14 @@ function App() {
                 <div className={classes.optionals}>
                     <div>
                         <FormControlLabel control={<Switch/>} label={'Prefix'}/>
-                        <Button
-                            variant={"contained"}
-                        >
-                            Shuffle Prefix
-                        </Button>
+                        {prefix && <Button variant={'contained'}>Shuffle Prefix</Button>}
                     </div>
                     <div>
                         <FormControlLabel control={<Switch/>} label={'Display VS'} onChange={handleVsToggle}/>
                     </div>
                     <div>
                         <FormControlLabel control={<Switch/>} label={'Suffix'}/>
-                        <Button
-                            variant={"contained"}
-                        >
-                            Shuffle Suffix
-                        </Button>
+                        {suffix && <Button variant={'contained'}>Shuffle Suffix</Button>}
                     </div>
                 </div>
             </div>
