@@ -1,18 +1,18 @@
 {
-  "pre" : [
+  "prefix" : [
     "Bloody",
     "Mutated",
     "Radioactive",
     "Unholy"
   ],
   "monster": [
-    "Spider",
-    "Shark",
-    "Tiger",
-    "Clown",
-    "Wolf"
+    {"one":"Spider", "many": "Spiders"},
+    {"one":"Shark", "many": "Sharks"},
+    {"one":"Tiger", "many": "Tigers"},
+    {"one":"Clown", "many": "Clowns"},
+    {"one":"Wolf", "many": "Wolves"}
   ],
-  "post" : [
+  "suffix" : [
     "of the Damned",
     "from New Jersey",
     "from Hell"

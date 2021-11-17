@@ -1,7 +1,7 @@
 import './App.css';
 import React, {useState, useEffect} from "react";
 import {makeStyles} from "@mui/styles";
-import {Button, Switch, FormControlLabel, FormControl, FormGroup} from '@mui/material';
+import {Button, Switch, FormControlLabel, FormControl, FormGroup, Typography} from '@mui/material';
 import Header from "./components/Header";
 import * as creatureList from './name.json';
 
@@ -17,8 +17,6 @@ const useStyles = makeStyles(() => ({
         margin: '10px auto',
         padding: '10px',
         fontFamily: 'Amatic SC',
-        fontSize: '3em',
-        fontWeight: 'bold'
     },
     buttonContainerMonster: {
         display: 'flex',
@@ -71,21 +69,22 @@ function App() {
       while(title1 === title2) {
           title2 = getRandomItem();
       }
-      setMovieTitle1(title1);
-      setMovieTitle2(title2);
+      setMovieTitle1(title1.one);
+      setMovieTitle2(title2.many);
   }
 
   const handleTitle1Change = () => {
-      setMovieTitle1(getRandomItem);
+      const item = getRandomItem();
+      setMovieTitle1(item.one);
   }
 
   const handleTitle2Change = () => {
-      const currentMonsterName = movieTitle2;
+      const currentMonsterName = movieTitle2.many;
       let newMonsterName = getRandomItem();
-      while(currentMonsterName === newMonsterName) {
+      while(currentMonsterName === newMonsterName.many) {
           newMonsterName = getRandomItem();
       }
-      setMovieTitle2(newMonsterName);
+      setMovieTitle2(newMonsterName.many);
   }
 
   const handleVsToggle = () => {
@@ -100,11 +99,11 @@ function App() {
   }
 
   const generatePrefix = () => {
-      setPrefix('whatever');
+      setPrefix(creatureList.prefix[Math.floor(Math.random() * creatureList.prefix.length)]);
   }
 
   const generateSuffix = () => {
-    setSuffix('whatever');
+      setSuffix(creatureList.suffix[Math.floor(Math.random() * creatureList.suffix.length)]);
   }
 
   useEffect(() =>{
@@ -115,9 +114,9 @@ function App() {
     <div className="App">
       <Header/>
         <div className={classes.root}>
-            <div className={classes.results}>
+            <Typography sx={{fontFamily: 'Amatic SC', fontWeight: 'bold'}} variant={'h3'} gutterBottom>
                 {prefix && <span>{prefix}</span>}&nbsp;{movieTitle1}&nbsp;{vsToggle && <span>vs&nbsp;</span>}{movieTitle2}&nbsp;{suffix && <span>{suffix}</span>}
-            </div>
+            </Typography>
             <div className={classes.form}>
                 <span className={classes.formTitle}>Randomizer</span>
                 <Button
