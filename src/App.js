@@ -17,6 +17,7 @@ const useStyles = makeStyles(() => ({
         margin: '10px auto',
         padding: '10px',
         fontFamily: 'Amatic SC',
+        maxWidth: '400px'
     },
     buttonContainerMonster: {
         display: 'flex',

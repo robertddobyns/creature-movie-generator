@@ -1,5 +1,7 @@
 import React from 'react';
 import {makeStyles} from '@mui/styles';
+import {Paper} from "@mui/material";
+import logo from './logo.jpg';
 
 const useStyles = makeStyles(() =>( {
     root: {
@@ -11,9 +13,9 @@ const Header =(props) =>{
     const classes = useStyles();
 
     return (
-        <h1>
-            Creature Feature Generator
-        </h1>
+        <>
+            <img src={logo} alt={'logo'}/>
+        </>
     )
 }
 
