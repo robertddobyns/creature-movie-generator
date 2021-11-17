@@ -9,15 +9,8 @@ const useStyles = makeStyles(() => ({
     root: {
         width: '400px',
         margin: '0 auto',
-    },
-    results: {
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'center',
-        margin: '10px auto',
-        padding: '10px',
-        fontFamily: 'Amatic SC',
-        maxWidth: '400px'
+        position: 'relative',
+        height: '100vh'
     },
     buttonContainerMonster: {
         display: 'flex',
@@ -31,17 +24,20 @@ const useStyles = makeStyles(() => ({
         paddingTop: '20px' ,
         display: 'flex',
         flexDirection: 'column',
-        position: 'relative',
+        position: 'fixed',
+        bottom: 5,
+        width: '380px',
+        margin: '0 auto'
     },
     formTitle: {
         position: 'absolute',
         textAlign: 'center',
         top: '-12px',
         width: '380px',
-        backgroundColor: 'white',
+        background: 'linear-gradient(#76a9db, white)',
         border: '1px solid black',
         borderRadius: 10,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
     },
     optionals: {
         width: '100%',
@@ -115,7 +111,7 @@ function App() {
     <div className="App">
       <Header/>
         <div className={classes.root}>
-            <Typography sx={{fontFamily: 'Amatic SC', fontWeight: 'bold'}} variant={'h3'} gutterBottom>
+            <Typography sx={{fontFamily: 'Amatic SC', fontWeight: 'bold', width: '400px', marginBottom: '80px'}} variant={'h4'} gutterBottom>
                 {prefix && <span>{prefix}</span>}&nbsp;{movieTitle1}&nbsp;{vsToggle && <span>vs&nbsp;</span>}{movieTitle2}&nbsp;{suffix && <span>{suffix}</span>}
             </Typography>
             <div className={classes.form}>
@@ -138,14 +134,14 @@ function App() {
                 <div className={classes.optionals}>
                     <div>
                         <FormControlLabel control={<Switch/>} label={'Prefix'} onChange={handlePrefixToggle}/>
-                        {prefix && <Button variant={'contained'}>Shuffle Prefix</Button>}
+                        {prefix && <Button variant={'contained'} onClick={generatePrefix}>Shuffle Prefix</Button>}
                     </div>
                     <div>
                         <FormControlLabel control={<Switch/>} label={'Display VS'} onChange={handleVsToggle}/>
                     </div>
                     <div>
                         <FormControlLabel control={<Switch/>} label={'Suffix'} onChange={handleSuffixToggle}/>
-                        {suffix && <Button variant={'contained'}>Shuffle Suffix</Button>}
+                        {suffix && <Button variant={'contained'} onClick={generateSuffix}>Shuffle Suffix</Button>}
                     </div>
                 </div>
             </div>
