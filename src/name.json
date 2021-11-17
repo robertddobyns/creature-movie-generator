@@ -17,11 +17,16 @@
     {"one":"Shark", "many": "Sharks"},
     {"one":"Tiger", "many": "Tigers"},
     {"one":"Clown", "many": "Clowns"},
-    {"one":"Wolf", "many": "Wolves"}
+    {"one":"Wolf", "many": "Wolves"},
+    {"one":"Rock", "many": "Rocks"},
+    {"one":"Taylor Swift's Scarf", "many": "Taylor Swift's Scarves"},
+    {"one":"Jake Gyllenhaal", "many": "Jake Gyllenhaals"},
+    {"one":"Squirrel", "many": "Squirrels"}
   ],
   "suffix" : [
     "of the Damned",
     "from New Jersey",
+    "from Iowa",
     "from Hell"
   ]
 }
