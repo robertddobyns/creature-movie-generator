@@ -10,7 +10,7 @@ const useStyles = makeStyles(() => ({
         width: '400px',
         margin: '0 auto',
         position: 'relative',
-        height: '100vh'
+        height: '100%'
     },
     buttonContainerMonster: {
         display: 'flex',
