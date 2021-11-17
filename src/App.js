@@ -7,10 +7,10 @@ import * as creatureList from './name.json';
 
 const useStyles = makeStyles(() => ({
     root: {
-        width: '400px',
-        margin: '0 auto',
-        position: 'relative',
-        height: '100%'
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        height: '100vh',
     },
     buttonContainerMonster: {
         display: 'flex',
@@ -18,34 +18,43 @@ const useStyles = makeStyles(() => ({
         justifyContent: 'space-around',
         margin: '10px 0'
     },
+    formContainer: {
+        position: "fixed",
+        bottom: 0,
+        width: '100vw',
+    },
     form: {
-        border: '1px solid black',
+        maxWidth: '400px',
+        width: '90vw',
+        margin: '0 auto',
+        position: 'relative',
         padding: '10px',
-        paddingTop: '20px' ,
-        display: 'flex',
-        flexDirection: 'column',
-        position: 'fixed',
-        bottom: 5,
-        width: '380px',
-        margin: '0 auto'
+        paddingTop: '30px',
+        border: '1px solid black',
+        marginBottom: '20px'
     },
     formTitle: {
         position: 'absolute',
+        width: '95%',
+        top: '-15px',
         textAlign: 'center',
-        top: '-12px',
-        width: '380px',
-        background: '#1976d2',
-        color: 'white',
         border: '1px solid black',
-        borderRadius: 10,
-        fontWeight: 'bold',
-        boxShadow: '0 3px 3px black',
+        borderRadius: '10px',
+        background: '#76a9db',
+        color: 'white',
+        padding: '5px 0'
     },
     optionals: {
         width: '100%',
         display: 'flex',
         flexDirection: 'column',
         textAlign: 'left'
+    },
+    version: {
+        position: 'absolute',
+        bottom: 0,
+        right: 0,
+        color: 'lightgray',
     }
 }))
 
@@ -57,6 +66,8 @@ function App() {
   const [prefix, setPrefix] = useState(null);
   const [suffix, setSuffix] = useState(null);
   const [vsToggle, setVsToggle] = useState(false);
+
+  const version = '0.0.1';
 
   const getRandomItem = () => {
       return creatureList.monster[Math.floor(Math.random() * creatureList.monster.length)];
@@ -110,15 +121,18 @@ function App() {
   },[])
 
   return (
-    <div className="App">
-      <Header/>
-        <div className={classes.root}>
-            <Typography sx={{fontFamily: 'Amatic SC', fontWeight: 'bold', width: '400px', marginBottom: '80px'}} variant={'h4'} gutterBottom>
-                {prefix && <span>{prefix}</span>}&nbsp;{vsToggle ? movieTitle1.many : movieTitle1.one}&nbsp;{vsToggle && <span>vs&nbsp;</span>}{movieTitle2.many}&nbsp;{suffix && <span>{suffix}</span>}
-            </Typography>
+    <div className={classes.root}>
+        <Header/>
+        <Typography sx={{fontFamily: 'Amatic SC', fontWeight: 'bold', textAlign: 'center'}} variant={'h4'} gutterBottom>
+            {prefix && <span>{prefix}</span>}&nbsp;{vsToggle ? movieTitle1.many : movieTitle1.one}&nbsp;{vsToggle && <span>vs&nbsp;</span>}{movieTitle2.many}&nbsp;{suffix && <span>{suffix}</span>}
+        </Typography>
+        <div className={classes.formContainer}>
             <div className={classes.form}>
-                <span className={classes.formTitle}>Randomizer</span>
+                <div className={classes.formTitle}>
+                    Randomizer
+                </div>
                 <Button
+                    sx={{width: '100%'}}
                     variant={'contained'}
                     onClick={handleInitialTitle}
                 >Full Shuffle
@@ -145,6 +159,9 @@ function App() {
                         <FormControlLabel control={<Switch/>} label={'Suffix'} onChange={handleSuffixToggle}/>
                         {suffix && <Button variant={'contained'} onClick={generateSuffix}>Shuffle Suffix</Button>}
                     </div>
+                </div>
+                <div className={classes.version}>
+                    {version}
                 </div>
             </div>
         </div>

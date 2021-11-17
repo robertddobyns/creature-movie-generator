@@ -4,7 +4,6 @@ import logo from './logo.jpg';
 
 const useStyles = makeStyles(() =>( {
     root: {
-
     }
 }))
 
@@ -12,9 +11,9 @@ const Header =(props) =>{
     const classes = useStyles();
 
     return (
-        <>
+        <div className={classes.root}>
             <img src={logo} alt={'logo'}/>
-        </>
+        </div>
     )
 }
 
