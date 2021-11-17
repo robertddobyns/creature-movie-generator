@@ -3,7 +3,14 @@
     "Bloody",
     "Mutated",
     "Radioactive",
-    "Unholy"
+    "Unholy",
+    "Ice",
+    "Polar",
+    "Raving",
+    "Angry",
+    "Horrific",
+    "Terrible",
+    "Satanic"
   ],
   "monster": [
     {"one":"Spider", "many": "Spiders"},

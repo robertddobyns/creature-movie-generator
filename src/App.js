@@ -34,10 +34,12 @@ const useStyles = makeStyles(() => ({
         textAlign: 'center',
         top: '-12px',
         width: '380px',
-        background: 'linear-gradient(#76a9db, white)',
+        background: '#1976d2',
+        color: 'white',
         border: '1px solid black',
         borderRadius: 10,
         fontWeight: 'bold',
+        boxShadow: '0 3px 3px black',
     },
     optionals: {
         width: '100%',
@@ -66,22 +68,22 @@ function App() {
       while(title1 === title2) {
           title2 = getRandomItem();
       }
-      setMovieTitle1(title1.one);
-      setMovieTitle2(title2.many);
+      setMovieTitle1(title1);
+      setMovieTitle2(title2);
   }
 
   const handleTitle1Change = () => {
       const item = getRandomItem();
-      setMovieTitle1(item.one);
+      setMovieTitle1(item);
   }
 
   const handleTitle2Change = () => {
-      const currentMonsterName = movieTitle2.many;
+      const currentMonsterName = movieTitle2;
       let newMonsterName = getRandomItem();
-      while(currentMonsterName === newMonsterName.many) {
+      while(currentMonsterName === newMonsterName) {
           newMonsterName = getRandomItem();
       }
-      setMovieTitle2(newMonsterName.many);
+      setMovieTitle2(newMonsterName);
   }
 
   const handleVsToggle = () => {
@@ -112,7 +114,7 @@ function App() {
       <Header/>
         <div className={classes.root}>
             <Typography sx={{fontFamily: 'Amatic SC', fontWeight: 'bold', width: '400px', marginBottom: '80px'}} variant={'h4'} gutterBottom>
-                {prefix && <span>{prefix}</span>}&nbsp;{movieTitle1}&nbsp;{vsToggle && <span>vs&nbsp;</span>}{movieTitle2}&nbsp;{suffix && <span>{suffix}</span>}
+                {prefix && <span>{prefix}</span>}&nbsp;{vsToggle ? movieTitle1.many : movieTitle1.one}&nbsp;{vsToggle && <span>vs&nbsp;</span>}{movieTitle2.many}&nbsp;{suffix && <span>{suffix}</span>}
             </Typography>
             <div className={classes.form}>
                 <span className={classes.formTitle}>Randomizer</span>
