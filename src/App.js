@@ -67,7 +67,7 @@ function App() {
   const [suffix, setSuffix] = useState(null);
   const [vsToggle, setVsToggle] = useState(false);
 
-  const version = '0.0.2';
+  const version = '0.0.3';
 
   const getRandomItem = () => {
       return creatureList.monster[Math.floor(Math.random() * creatureList.monster.length)];
@@ -79,6 +79,15 @@ function App() {
       while(title1 === title2) {
           title2 = getRandomItem();
       }
+
+      if(prefix) {
+          generatePrefix();
+      }
+
+      if(suffix) {
+          generateSuffix();
+      }
+
       setMovieTitle1(title1);
       setMovieTitle2(title2);
   }
