@@ -2,6 +2,7 @@
   "prefix" : [
     "Bloody",
     "Mutated",
+    "Mutant",
     "Radioactive",
     "Unholy",
     "Ice",
@@ -10,7 +11,26 @@
     "Angry",
     "Horrific",
     "Terrible",
-    "Satanic"
+    "Satanic",
+    "alarming",
+    "Dire",
+    "Direful",
+    "dreadful",
+    "Fearful",
+    "Fearsome",
+    "Forbidding",
+    "Formidable",
+    "Frightening",
+    "Frightful",
+    "Ghastly",
+    "Hair-raising",
+    "Horrendous",
+    "Horrible",
+    "Horrifying",
+    "Intimidating",
+    "Shocking",
+    "Spine-chilling",
+    "Terrifying"
   ],
   "monster": [
     {"one":"Spider", "many": "Spiders"},
@@ -19,14 +39,18 @@
     {"one":"Clown", "many": "Clowns"},
     {"one":"Wolf", "many": "Wolves"},
     {"one":"Rock", "many": "Rocks"},
-    {"one":"Taylor Swift's Scarf", "many": "Taylor Swift's Scarves"},
-    {"one":"Jake Gyllenhaal", "many": "Jake Gyllenhaals"},
-    {"one":"Squirrel", "many": "Squirrels"}
+    {"one":"Squirrel", "many": "Squirrels"},
+    {"one":"Troll", "many": "Trolls"},
+    {"one":"Mole", "many": "Moles"},
+    {"one":"Goose", "many": "Geese"}
+
   ],
   "suffix" : [
+    "from the Underworld",
     "of the Damned",
     "from New Jersey",
     "from Iowa",
-    "from Hell"
+    "from Hell",
+    "from the Deep"
   ]
 }
