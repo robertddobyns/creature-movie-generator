@@ -67,7 +67,7 @@ function App() {
   const [suffix, setSuffix] = useState(null);
   const [vsToggle, setVsToggle] = useState(false);
 
-  const version = '0.0.1';
+  const version = '0.0.2';
 
   const getRandomItem = () => {
       return creatureList.monster[Math.floor(Math.random() * creatureList.monster.length)];
